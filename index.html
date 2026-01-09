@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>祝福</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; padding: 24px; }
+    .card { max-width: 520px; margin: 10vh auto 0; padding: 24px; border: 1px solid #eee; border-radius: 16px; }
+    .msg { font-size: 22px; line-height: 1.6; }
+    button { margin-top: 16px; padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="msg" id="msg"></div>
+    <button id="btn">换一句</button>
+  </div>
+
+  <script>
+    const blessings = [
+      "愿你平安喜乐，万事胜意。",
+      "愿你所求皆如愿，所行皆坦途。",
+      "愿你年年有今日，岁岁有今朝。",
+      "愿你前程似锦，未来可期。",
+      "愿你生活明朗，万物可爱。"
+    ];
+
+    function pickOne() {
+      const i = Math.floor(Math.random() * blessings.length);
+      return blessings[i];
+    }
+
+    function render() {
+      document.getElementById("msg").textContent = pickOne();
+    }
+
+    document.getElementById("btn").addEventListener("click", render);
+    render();
+  </script>
+</body>
+</html>
